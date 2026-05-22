@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>埔心里-宜蘭太平山快樂遊</title>
+    <style>
+        /* 長輩友善基礎樣式：字體大、對比高 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            font-size: 22px; /* 超大字體 */
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 32px; }
+        h2 { color: #0056b3; border-left: 6px solid #0056b3; padding-left: 10px; font-size: 26px; margin-top: 10px; }
+        h3 { color: #d9534f; font-size: 24px; margin: 5px 0; }
+
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        
+        /* 卡片式設計 */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 實用功能按鈕 */
+        .btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 5px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 22px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .btn-audio { background-color: #ffc107; color: #222; }
+        .btn-danger { background-color: #dc3545; }
+
+        /* 行程時間軸 */
+        .time-item {
+            border-bottom: 2px dashed #ccc;
+            padding: 15px 0;
+        }
+        .time-item:last-child { border-bottom: none; }
+        .time-badge {
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #495057;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* 勾選清單樣式 */
+        .todo-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .todo-item input[type="checkbox"] {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+        }
+
+        /* 底部聯絡欄 */
+        .footer-nav {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 12px 12px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>太平山之旅 🌲</h1>
+        <div style="font-size: 18px; margin-top: 5px;">日期：115年5月29日~30日 (五、六)</div>
+    </header>
+
+    <div class="container">
+
+        <div class="card" style="text-align: center;">
+            <h3>🔊 聽行程功能</h3>
+            <p style="font-size: 18px; color: #666; margin: 5px 0 15px 0;">眼睛累了？點下面按鈕用聽的！</p>
+            <button class="btn btn-audio" onclick="speak行程()">▶ 點我唸今天的行程給我聽</button>
+            <button class="btn" style="background-color: #6c757d;" onclick="stopSpeech()">⏹ 停止播放</button>
+        </div>
+
+        <div class="card">
+            <h3>🧳 出門必帶東西（出發前勾選）</h3>
+            <div class="todo-item"><input type="checkbox" id="item1"><label for="item1">健保卡 (很重要！)</label></div>
+            <div class="todo-item"><input type="checkbox" id="item2"><label for="item2">暈車藥 (山路會晃)</label></div>
+            <div class="todo-item"><input type="checkbox" id="item3"><label for="item3">口罩</label></div>
+            <div class="todo-item"><input type="checkbox" id="item4"><label for="item4">陽傘、帽子 (防曬防雨)</label></div>
+            <div class="todo-item"><input type="checkbox" id="item5"><label for="item5">保暖外套 (高山氣溫低)</label></div>
+        </div>
+
+        <div class="card">
+            <h2> Day 1：5月29日 (星期五)</h2>
+            
+            <div class="time-item">
+                <span class="time-badge">早上 06:30</span>
+                <strong>埔心里辦公處集合出發！</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">車上卡拉OK歡唱、精彩熱片欣賞，開開心心出發。</p>
+            </div>
+
+            <div class="time-item">
+                <span class="time-badge">上午行程</span>
+                <strong>頭城休息 ➔ 英士休息區（搭接駁車）</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">前往<b>見晴懷古步道</b>，漫步新闢人車分道（長1.3公里，約走20-25分鐘），欣賞全球最美小路之一。</p>
+            </div>
+
+            <div class="time-item">
+                <span class="time-badge">中午 ➔ 下午</span>
+                <strong>翠峰湖風景區（山上吃便當）</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">探訪台灣最大的高山湖泊，海拔1,840公尺，晨昏四季風景美不勝收。</p>
+            </div>
+
+            <div class="time-item">
+                <span class="time-badge">下午行程</span>
+                <strong>太平山國家森林遊樂區</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">享受森林芬多精！蹦蹦車需現場購票（1人限購10張，有買到票就搭，沒買到就散步沿途下山）。</p>
+            </div>
+
+            <div class="time-item">
+                <span class="time-badge">晚上 18:00</span>
+                <strong>夜宿英仕山莊 + 晚餐</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">享用美味晚餐（含飲料），餐後還有卡拉OK歡唱時間，以及招待美味點心喔！</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2> Day 2：5月30日 (星期六)</h2>
+            
+            <div class="time-item">
+                <span class="time-badge">早上 08:00</span>
+                <strong>美味早餐後出發</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">早安！在山莊1樓享用完早餐後，準時出發。</p>
+            </div>
+
+            <div class="time-item">
+                <span class="time-badge">上午行程</span>
+                <strong>九寮溪自然步道</strong>
+                <p style="font-size: 18px; margin: 5px 0 0 0; color:#555;">沿溪而建的平坦步道，水質清涼。沿途觀賞氣勢磅礴的九寮溪瀑布（玉蘭瀑布）。路面平坦好
